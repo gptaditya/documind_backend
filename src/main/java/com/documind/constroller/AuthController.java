@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
  //allow 3000 port for frontend
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("*")
 @RequestMapping("/api/auth")
 public class AuthController {
     private final UserRepository userRepository;
