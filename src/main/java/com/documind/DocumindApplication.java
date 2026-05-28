@@ -10,4 +10,5 @@ public class DocumindApplication {
 		SpringApplication.run(DocumindApplication.class, args);
 	}
 
+	
 }
