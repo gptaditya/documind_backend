@@ -49,6 +49,7 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler {
 
         // Send the user back to the frontend with the token
         // Frontend reads ?token=xxx from the URL, stores it, and uses it for API calls
-        response.sendRedirect("http://localhost:3000/auth/callback?token=" + token);
+        String frontendUrl = "https://documind.xadisri.in";
+        response.sendRedirect(frontendUrl + "/auth/callback?token=" + token);
     }
 }

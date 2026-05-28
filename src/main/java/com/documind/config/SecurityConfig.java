@@ -46,10 +46,11 @@ public class SecurityConfig {
         config.setAllowedOrigins(List.of(
             "http://localhost:3000",
             "https://xadisri.in",
-            "https://www.xadisri.in"
+            "https://www.xadisri.in",
+            "https://documind.xadisri.in"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        config.setAllowedHeaders(List.of("*"));
+        config.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept", "Origin", "X-Requested-With"));
         config.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
