@@ -47,7 +47,8 @@ public class SecurityConfig {
             "http://localhost:3000",
             "https://xadisri.in",
             "https://www.xadisri.in",
-            "https://documind.xadisri.in"
+            "https://documind.xadisri.in",
+            "https://documind-frontend-git-main-aditya19guptas-projects.vercel.app"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept", "Origin", "X-Requested-With"));
