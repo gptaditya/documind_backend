@@ -91,6 +91,7 @@ public class SecurityConfig {
         http
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/error").permitAll() // allow internal async error dispatches
                 .anyRequest().authenticated())
             .oauth2Login(oauth2 -> oauth2
                 .successHandler(oAuth2SuccessHandler));

@@ -47,11 +47,11 @@ public class JWTUtil {
     }
 
     public boolean isValid(String token) {
-        return !isTokenExpired(token);
-    }
-
-    private boolean isTokenExpired(String token) {
-        return getClaims(token).getExpiration().before(new Date());
+        try {
+            return !getClaims(token).getExpiration().before(new Date());
+        } catch (Exception e) {
+            return false; // expired, wrong signature, malformed — all treated as invalid
+        }
     }
 
 }

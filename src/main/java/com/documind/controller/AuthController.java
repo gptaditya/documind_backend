@@ -1,4 +1,4 @@
-package com.documind.constroller;
+package com.documind.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -78,5 +78,4 @@ public class AuthController {
         String token = jwtUtil.generate(user.getEmail());
         return ResponseEntity.ok(Map.of("token", token));
     }
-
 }
