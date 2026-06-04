@@ -1,5 +1,6 @@
 package com.documind.config;
 
+import jakarta.servlet.DispatcherType;
 import java.util.List;
 
 import org.springframework.context.annotation.Bean;
@@ -70,6 +71,7 @@ public class SecurityConfig {
             .sessionManagement(session ->
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
+                .dispatcherTypeMatchers(DispatcherType.ASYNC, DispatcherType.ERROR).permitAll()
                 .requestMatchers("/api/auth/login", "/api/auth/register").permitAll()
                 .anyRequest().authenticated())
             .exceptionHandling(ex -> ex
@@ -91,7 +93,8 @@ public class SecurityConfig {
         http
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/error").permitAll() // allow internal async error dispatches
+                .dispatcherTypeMatchers(DispatcherType.ASYNC, DispatcherType.ERROR).permitAll()
+                .requestMatchers("/error").permitAll()
                 .anyRequest().authenticated())
             .oauth2Login(oauth2 -> oauth2
                 .successHandler(oAuth2SuccessHandler));
